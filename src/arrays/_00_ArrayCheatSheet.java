@@ -20,6 +20,7 @@ public class _00_ArrayCheatSheet {
 
 		// 6. make an array of 50 integers
 		int[] moreNames = new int[50];
+		// 7. use a for loop to make every value of the integer array a random number
 		Random r = new Random();
 		for (int o = 0; o < moreNames.length; o++) {
 			moreNames[o] = r.nextInt(51);
