@@ -12,27 +12,29 @@ public class _01_RobotRace {
 
 		// 2. create an array of 5 robots.
 		Random r = new Random();
-		Robot[] robot = new Robot[5];
+		Robot[] robot = new Robot[7];
 		// 3. use a for loop to initialize the robots.
 		for (int i = 0; i < robot.length; i++) {
 			robot[i] = new Robot();
-			robot[i].setSpeed(50);
+			robot[i].setSpeed(200);
+			robot[i].turn(90);
+			robot[i].moveTo(600, 550);
 		}
 
 		// 4. make each robot start at the bottom of the screen, side by side, facing up
-		robot[4].moveTo(450, 550);
-		robot[0].moveTo(50, 550);
-		robot[1].moveTo(150, 550);
-		robot[2].moveTo(250, 550);
-		robot[3].moveTo(350, 550);
-
+		
 		// 5. use another for loop to iterate through the array and make each robot move
 		// a random amount less than 50.
 		boolean notAtTheTop = true;
 		while(notAtTheTop) {
 		for (int i = 0; i < robot.length; i++) {
-			robot[i].move(r.nextInt(50));
-			if(robot[i].getY()==10) {
+			
+			for(int o = 0; o < r.nextInt(50); o++) {
+				robot[i].turn(-1);
+				robot[i].move(1);
+			}
+		
+			if(robot[i].getX()==600 && robot[i].getY()==550) {
 				notAtTheTop = false;
 				JOptionPane.showMessageDialog(null, "Robot #"+i+" has won. Hooray! Congratulations!");
 				break;
